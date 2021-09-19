@@ -69,7 +69,7 @@
 
   <% if can? :admin, Spree::Product %>
     <ul class="nav nav-sidebar border-bottom" id="sidebarOrder">
-      <%= tab "Importer", url: admin_imported_documents_path, icon: 'list.svg' %>
+      <%= tab *Spree::BackendConfiguration::IMPORTED_DOCUMENT_TABS, url: admin_imported_documents_path, icon: 'list.svg' %>
     </ul>
   <% end %>
 
