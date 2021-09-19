@@ -1,0 +1,42 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:import_document) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_import),
+                     new_admin_imported_document_path,
+                     class: "btn-success",
+                     icon: 'add.svg',
+                     id: 'new_admin_imported_document' %>
+<% end if can? :create, Spree::Product %>
+
+<% if @imported_documents.any? %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr data-hook="admin_roles_index_headers">
+        <th><%= Spree.t(:imported_documents) %></th>
+        <th class="actions"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @imported_documents.each do |imported_document| %>
+        <tr id="<%= spree_dom_id imported_document %>" data-hook="admin_roles_index_rows">
+          <td><%= imported_document.name %></td>
+          <td class="actions">
+              <span class="d-flex justify-content-end">
+                <%= link_to_edit(imported_document, no_text: true) if can? :edit, imported_document %>
+                <%= link_to_delete(imported_document, no_text: true) if can? :destroy, imported_document %>
+              </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="alert alert-warning">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::ImportedDocument)) %>,
+    <%= link_to(Spree.t(:add_one), new_object_url) if can? :create, Spree::ImportedDocument %>!
+  </div>
+<% end %>
