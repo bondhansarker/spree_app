@@ -106,6 +106,7 @@ GEM
       activesupport (>= 3.0.0)
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
+    connection_pool (2.2.5)
     crass (1.0.6)
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -193,6 +194,8 @@ GEM
     rack (2.2.3)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
+    rack-protection (2.1.0)
+      rack
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -231,6 +234,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.1.4)
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -254,6 +258,11 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sidekiq (5.2.9)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 4.2)
     spree (4.3.0)
       spree_api (= 4.3.0)
       spree_core (= 4.3.0)
@@ -397,6 +406,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq
   spree
   spree_auth_devise (~> 4.3)
   spree_backend
