@@ -1,5 +1,5 @@
 require 'test_helper'
-class Spree::ImportDataFromCsvWorkerTest < MiniTest::Unit::TestCase
+class Spree::Import::ProductsWorkerTest < MiniTest::Unit::TestCase
   def test_example
     skip "add some examples to (or delete) #{__FILE__}"
   end
