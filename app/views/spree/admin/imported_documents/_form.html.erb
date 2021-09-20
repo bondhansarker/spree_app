@@ -12,6 +12,6 @@
 
   <div data-hook="file" class="form-group">
     <%= f.label :document, @imported_document&.document&.filename&.to_s %><br>
-    <%= f.file_field :document%>
+    <%= f.file_field :document, accept: ".csv" %>
   </div>
 </div>
