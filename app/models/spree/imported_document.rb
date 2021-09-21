@@ -2,11 +2,11 @@ module Spree
   class ImportedDocument < Spree::Base
     has_one_attached :document
     validates :name, :note, :document, presence: true
-    validates :document, content_type:  ["application/csv", "text/csv"]
-    after_save_commit :import_data_from_csv
+    validates :document, content_type:  %w[application/csv text/csv]
+    after_save_commit :import_products_from_csv_file
 
-    def import_data_from_csv
-       ImportDataFromCsvWorker.perform_async(self.id)
+    def import_products_from_csv_file
+       Import::ProductsWorker.perform_async(self.id)
     end
   end
 end
