@@ -1,3 +1,4 @@
+require 'csv'
 module Spree
   module Import
     class ProductsService < BaseService
