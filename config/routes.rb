@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   Spree::Core::Engine.add_routes do
     namespace :admin, path: Spree.admin_path do
       resources :imported_documents
+      require 'sidekiq/web'
+      mount Sidekiq::Web => '/sidekiq'
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
