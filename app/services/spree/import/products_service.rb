@@ -30,6 +30,12 @@ module Spree
             product.author = get_value(author)
             product.discounted_price = get_value(discounted_price)
             product.url = get_value(url)
+            #-------------saving image-----------------
+            image_url = get_value(image_url)
+            image_file = download_image_file(image_url)
+            image = product.images.new
+            image.attachment.attach(io: image_file, filename: image_url)
+            image.alt = get_value(title)
           end
           properties.each do |attribute, value|
             product.set_property(get_property_key(attribute), value)
@@ -43,6 +49,11 @@ module Spree
 
       def get_value(column_with_header)
         column_with_header.last
+      end
+
+      def download_image_file(image_url)
+        parsed_image_url = URI.parse(image_url)
+        URI.open(parsed_image_url)
       end
     end
   end
