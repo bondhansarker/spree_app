@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'rails', '~> 6.1.4', '>= 6.1.4.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -56,6 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'spree' # core and API
 gem 'spree_frontend' # Rails storefront (optional)
-gem 'spree_backend' # Rails admin panel (optional)
+gem 'spree_backend' , '>= 4.4.0' # Rails admin panel (optional)
 gem 'spree_sample' # dummy data like products, taxons, etc
 gem 'spree_auth_devise', '~> 4.4', '>= 4.4.1' # Devise integration (optional)
