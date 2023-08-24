@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -12,11 +12,11 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.4', '>= 5.4.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.11', '>= 2.11.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -35,7 +35,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
+  gem 'web-console', '>= 4.2.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
@@ -54,8 +54,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'spree' # core and API
-gem 'spree_frontend' # Rails storefront (optional)
-gem 'spree_backend' # Rails admin panel (optional)
-gem 'spree_sample' # dummy data like products, taxons, etc
-gem 'spree_auth_devise', '~> 4.4', '>= 4.4.1' # Devise integration (optional)
+gem 'spree' , '>= 4.3.1' # core and API
+gem 'spree_frontend' , '>= 4.3.1' # Rails storefront (optional)
+gem 'spree_backend' , '>= 4.4.0' # Rails admin panel (optional)
+gem 'spree_sample' , '>= 4.3.1' # dummy data like products, taxons, etc
+gem 'spree_auth_devise', '~> 4.4', '>= 4.4.2' # Devise integration (optional)
